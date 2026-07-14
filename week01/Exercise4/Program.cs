@@ -5,43 +5,38 @@ class Program
 {
     static void Main(string[] args)
     {
-        List<int> numbers = new List<int>();
-        
-        int inputNumber = -1;
-        while (inputNumber != 0)
-        {
-        Console.Write("Enter a number:(type 0 to quit) ");
-            
-        string inputResponse = Console.ReadLine();
-        inputNumber = int.Parse(inputResponse);
-            
-        if (inputNumber != 0)
-        {
-        numbers.Add(inputNumber);
-        }
-        }
+     List<int> number = new List<int>();
+     int userNumber;
+     Console.WriteLine ("Enter a list of numbers, type 0 when finished");
+     do
+     {
+        Console.Write ("Enter a number: ");
+        string userResponse = Console.ReadLine ();
+        userNumber = int.Parse (userResponse);
+        number.Add (userNumber);
 
-        int sum = 0;
-        foreach (int number in numbers)
-        {
-            sum += number;
-        }
+     } while (userNumber != 0);
 
-        Console.WriteLine($"the sum is: {sum}");
+    int sum = 0;
+        foreach (int num in number)
+            {
+            sum += num;   
+            }
+            Console.WriteLine ($"The sum of the numbers is: {sum}");
 
-        float average = ((float)sum) / numbers.Count;
-        Console.WriteLine($"the average is: {average}");
-        
-        int max = numbers[0];
+    float average = (float)sum / (number.Count-1);
+        Console.WriteLine ($"The average of the numbers is: {average}");
 
-        foreach (int number in numbers)
-        {
-        if (number > max)
-        {
-        max = number;
-        }
-        }
+    int max = number[0];
+        foreach (int num in number)
+            {
+            if (num > max)
+                {
+                max = num;
+                }
+            }
+            Console.WriteLine ($"The maximum number is: {max}");
 
-        Console.WriteLine($"The max is: {max}");
     }
+    
 }
